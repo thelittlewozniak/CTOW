@@ -11,17 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OxyPlot;
 
 namespace CTOW_interface
 {
     /// <summary>
-    /// Logique d'interaction pour Bruit.xaml
+    /// Logique d'interaction pour Detail.xaml
     /// </summary>
-    public partial class Bruit : Window
+    public partial class Detail : Window
     {
-        public Bruit()
+        public Detail()
         {
             InitializeComponent();
+            tabDetail.InvalidatePlot(true);
         }
 
         private void Quitter(object sender, RoutedEventArgs e)
@@ -31,9 +33,9 @@ namespace CTOW_interface
 
         private void Previous(object sender, RoutedEventArgs e)
         {
-            GraphMonth graphique = new GraphMonth();
+            GraphMonth graph = new GraphMonth();
             this.Close();
-            graphique.Show();
+            graph.Show();
         }
     }
 }
