@@ -74,18 +74,18 @@ CREATE TABLE IF NOT EXISTS `data` (
   `iddata` INT NOT NULL,
   `value_data` VARCHAR(45) NULL,
   `type_idtype` INT NOT NULL,
-  `device_iddevice` INT NOT NULL,
+  `device_guid` INT NOT NULL,
   PRIMARY KEY (`iddata`),
   INDEX `fk_data_type1_idx` (`type_idtype` ASC),
-  INDEX `fk_data_device1_idx` (`device_iddevice` ASC),
+  INDEX `fk_data_device1_idx` (`device_guid` ASC),
   CONSTRAINT `fk_data_type1`
     FOREIGN KEY (`type_idtype`)
     REFERENCES `type_data` (`idtype_data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_data_device1`
-    FOREIGN KEY (`device_iddevice`)
-    REFERENCES `device` (`iddevice`)
+    FOREIGN KEY (`device_guid`)
+    REFERENCES `device` (`guid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -130,9 +130,9 @@ DROP TABLE IF EXISTS `user_has_device` ;
 
 CREATE TABLE IF NOT EXISTS `user_has_device` (
   `user_iduser` INT NOT NULL,
-  `device_iddevice` INT NOT NULL,
-  PRIMARY KEY (`user_iduser`, `device_iddevice`),
-  INDEX `fk_user_has_device_device1_idx` (`device_iddevice` ASC),
+  `device_guid` INT NOT NULL,
+  PRIMARY KEY (`user_iduser`, `device_guid`),
+  INDEX `fk_user_has_device_device1_idx` (`device_guid` ASC),
   INDEX `fk_user_has_device_user1_idx` (`user_iduser` ASC),
   CONSTRAINT `fk_user_has_device_user1`
     FOREIGN KEY (`user_iduser`)
@@ -140,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `user_has_device` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_device_device1`
-    FOREIGN KEY (`device_iddevice`)
-    REFERENCES `device` (`iddevice`)
+    FOREIGN KEY (`device_guid`)
+    REFERENCES `device` (`guid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
