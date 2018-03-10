@@ -1,27 +1,27 @@
 -- -----------------------------------------------------
--- Table adress
+-- Table address
 -- -----------------------------------------------------
 
-CREATE TABLE  adress (
-  idadress INT IDENTITY(1,1) NOT NULL,
-  adress_street VARCHAR(45) NULL,
-  adress_number VARCHAR(45) NULL,
-  adress_cp VARCHAR(45) NULL,
-  adress_city VARCHAR(45) NULL,
-  adress_country VARCHAR(45) NULL,
-  PRIMARY KEY (idadress))
+CREATE TABLE  address (
+  idaddress INT IDENTITY(1,1) NOT NULL,
+  address_street VARCHAR(45) NULL,
+  address_number VARCHAR(45) NULL,
+  address_cp VARCHAR(45) NULL,
+  address_city VARCHAR(45) NULL,
+  address_country VARCHAR(45) NULL,
+  PRIMARY KEY (idaddress))
 -- -----------------------------------------------------
 -- Table device
 -- -----------------------------------------------------
 CREATE TABLE  device (
   iddevice INT IDENTITY(1,1) NOT NULL,
   device_description VARCHAR(45) NULL,
-  adress_idadress INT NOT NULL,
+  address_idaddress INT NOT NULL,
   PRIMARY KEY (iddevice),
-  INDEX fk_device_adress_idx (adress_idadress ASC),
-  CONSTRAINT fk_device_adress
-    FOREIGN KEY (adress_idadress)
-    REFERENCES adress (idadress)
+  INDEX fk_device_address_idx (address_idaddress ASC),
+  CONSTRAINT fk_device_address
+    FOREIGN KEY (address_idaddress)
+    REFERENCES address (idaddress)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 -- -----------------------------------------------------
@@ -54,42 +54,42 @@ CREATE TABLE  data (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 -- -----------------------------------------------------
--- Table type_user
+-- Table type_customer
 -- -----------------------------------------------------
-CREATE TABLE  type_user (
-  idtype_user INT IDENTITY(1,1) NOT NULL,
-  type_user_description VARCHAR(45) NULL,
-  PRIMARY KEY (idtype_user))
+CREATE TABLE  type_customer (
+  idtype_customer INT IDENTITY(1,1) NOT NULL,
+  type_customer_description VARCHAR(45) NULL,
+  PRIMARY KEY (idtype_customer))
 -- -----------------------------------------------------
--- Table user
+-- Table customer
 -- -----------------------------------------------------
-CREATE TABLE  user (
-  iduser INT IDENTITY(1,1) NOT NULL,
-  user_email VARCHAR(45) NULL,
-  user_password VARCHAR(45) NULL,
-  type_user_idtype_user INT NOT NULL,
-  PRIMARY KEY (iduser),
-  INDEX fk_user_type_user1_idx (type_user_idtype_user ASC),
-  CONSTRAINT fk_user_type_user1
-    FOREIGN KEY (type_user_idtype_user)
-    REFERENCES type_user (idtype_user)
+CREATE TABLE  customer (
+  idcustomer INT IDENTITY(1,1) NOT NULL,
+  customer_email VARCHAR(45) NULL,
+  customer_password VARCHAR(45) NULL,
+  type_customer_idtype_customer INT NOT NULL,
+  PRIMARY KEY (idcustomer),
+  INDEX fk_customer_type_customer1_idx (type_customer_idtype_customer ASC),
+  CONSTRAINT fk_customer_type_customer1
+    FOREIGN KEY (type_customer_idtype_customer)
+    REFERENCES type_customer (idtype_customer)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 -- -----------------------------------------------------
--- Table user_has_device
+-- Table customer_has_device
 -- -----------------------------------------------------
-CREATE TABLE  user_has_device (
-  user_iduser INT NOT NULL,
+CREATE TABLE  customer_has_device (
+  customer_idcustomer INT NOT NULL,
   device_iddevice INT NOT NULL,
-  PRIMARY KEY (user_iduser, device_iddevice),
-  INDEX fk_user_has_device_device1_idx (device_iddevice ASC),
-  INDEX fk_user_has_device_user1_idx (user_iduser ASC),
-  CONSTRAINT fk_user_has_device_user1
-    FOREIGN KEY (user_iduser)
-    REFERENCES user (iduser)
+  PRIMARY KEY (customer_idcustomer, device_iddevice),
+  INDEX fk_customer_has_device_device1_idx (device_iddevice ASC),
+  INDEX fk_customer_has_device_customer1_idx (customer_idcustomer ASC),
+  CONSTRAINT fk_customer_has_device_customer1
+    FOREIGN KEY (customer_idcustomer)
+    REFERENCES customer (idcustomer)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT fk_user_has_device_device1
+  CONSTRAINT fk_customer_has_device_device1
     FOREIGN KEY (device_iddevice)
     REFERENCES device (iddevice)
     ON DELETE NO ACTION
