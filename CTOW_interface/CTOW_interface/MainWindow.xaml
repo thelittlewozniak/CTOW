@@ -7,10 +7,47 @@
         mc:Ignorable="d"
         Title="DynamicTriangle" Height="1200" Width="1600">
     <Grid>
-        <Polygon x:Name="Triangle100" Points="400,0 150,350, 650,350" Stroke="Black" />
-        <Polygon x:Name="Triangle75" Points="400,50 212.5,312.5 587.5,312.5" Stroke="Black" />
-        <Polygon x:Name="Triangle50" Points="400,100 275,275 525,275" Stroke="Black" />
-        <Polygon x:Name="Triangle25" Points="400,150 337.5,237.5 462.5,237.5" Stroke="Black" />
-        <Polygon x:Name="TriangleFill" Points="0,0 0,0 0,0" Stroke="Black" Fill="Blue"/>
+        <Grid HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="900">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="21*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="SliderPollution" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top" Height="30" Width="402"/>
+            <Slider x:Name="SliderBruit" HorizontalAlignment="Left" Margin="250,350,0,0" VerticalAlignment="Top" Height="30" Width="402"/>
+            <Slider x:Name="SliderDebit" HorizontalAlignment="Left" Margin="250,450,0,0" VerticalAlignment="Top" Height="30" Width="402"/>
+            <Label x:Name="LabelPollution" Content="Pollution" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label x:Name="LabelBruit" Content="Bruit" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label x:Name="LabelDebit" Content="Débit Internet" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label x:Name="LabelTitle" Content="Il était un fois une souris verte" HorizontalAlignment="Left" Margin="54,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.105,-0.692" Height="88" Width="676" FontSize="50"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="450" Margin="900,0,0,0" VerticalAlignment="Top" Width="690">
+            <Polygon x:Name="Triangle100" Points="345,40 95,390 595,390" Stroke="Black" />
+            <Polygon x:Name="Triangle75" Points="345,90 157.5,352.5 532.5,352.5" Stroke="Black" />
+            <Polygon x:Name="Triangle50" Points="345,140 220,315 470,315" Stroke="Black" />
+            <Polygon x:Name="Triangle25" Points="345,190 282.5,277.5 407.5,277.5" Stroke="Black" />
+            <Polygon x:Name="TriangleFill" Points="345,240 345,240 345,240" Stroke="Black" Fill="Blue"/>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry x:Name="TopLine" StartPoint="345,40" EndPoint="345,240" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry x:Name="LeftLine" StartPoint="95,390" EndPoint="345,240" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry x:Name="RightLine" StartPoint="595,390" EndPoint="345,240" />
+                </Path.Data>
+            </Path>
+            <Label x:Name="LabelGraphPollution" Content="Pollution" HorizontalAlignment="Left" Margin="18,394,0,0" VerticalAlignment="Top" Height="30" Width="72" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+            <Label x:Name="LabelGraphBruit" Content="Bruit" HorizontalAlignment="Left" Margin="308,0,0,0" VerticalAlignment="Top" Height="30" Width="72" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+            <Label x:Name="LabelGraphDebit" Content="Débit" HorizontalAlignment="Left" Margin="593,394,0,0" VerticalAlignment="Top" Height="30" Width="72" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="639" Margin="0,530,0,0" VerticalAlignment="Top" Width="1592">
+            <ListBox HorizontalAlignment="Left" Height="100" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492"/>
+            <Button x:Name="BtnDetail" Content="Détail" HorizontalAlignment="Left" Margin="750,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible"/>
+        </Grid>
     </Grid>
 </Window>

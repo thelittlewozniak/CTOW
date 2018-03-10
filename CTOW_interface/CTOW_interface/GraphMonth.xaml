@@ -1,0 +1,110 @@
+﻿<Window x:Class="CTOW_interface.GraphMonth"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CTOW_interface"
+        mc:Ignorable="d"
+        Title="GraphMonth" Height="1200" Width="1600">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="800">
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="100,450" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="100,450" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="105,165" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="95,165" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="390,445" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="390,455" />
+                </Path.Data>
+            </Path>
+            <Label Content="Pollution" HorizontalAlignment="Left" Margin="298,34,0,0" VerticalAlignment="Top" Height="58" Width="190" FontSize="40"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="792" Margin="800,0,0,0">
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="100,450" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="100,450" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="105,165" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="95,165" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="390,445" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="390,455" />
+                </Path.Data>
+            </Path>
+            <Label Content="Bruit" HorizontalAlignment="Left" Margin="298,34,0,0" VerticalAlignment="Top" Height="58" Width="190" FontSize="40"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="564" VerticalAlignment="Top" Width="792" Margin="401,605,0,0">
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="100,450" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="100,450" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="105,165" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="100,150" EndPoint="95,165" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="390,445" />
+                </Path.Data>
+            </Path>
+            <Path Stroke="Black" StrokeThickness="1" >
+                <Path.Data>
+                    <LineGeometry StartPoint="400,450" EndPoint="390,455" />
+                </Path.Data>
+            </Path>
+            <Label Content="Débit Internet" HorizontalAlignment="Left" Margin="298,34,0,0" VerticalAlignment="Top" Height="58" Width="269" FontSize="40"/>
+        </Grid>
+    </Grid>
+</Window>
