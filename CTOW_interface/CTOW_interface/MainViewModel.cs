@@ -41,6 +41,16 @@ namespace CTOW_interface
                                   new DataPoint(40, 12),
                                   new DataPoint(50, 12)
                               };
+            this.Detail = "Détail";
+            this.PtDetail = new List<DataPoint>
+                              {
+                                  new DataPoint(0, 6),
+                                  new DataPoint(10, 13),
+                                  new DataPoint(20, 15),
+                                  new DataPoint(30, 16),
+                                  new DataPoint(40, 12),
+                                  new DataPoint(50, 12)
+                              };
         }
         public string Pol { get; private set; }
 
@@ -51,5 +61,8 @@ namespace CTOW_interface
         public string Debit { get; private set; }
 
         public IList<DataPoint> PtDebit { get; private set; }
+        public string Detail { get; private set; }
+
+        public IList<DataPoint> PtDetail { get; private set; }
     }
 }
