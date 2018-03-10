@@ -66,9 +66,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adress.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Device.cs" />
     <Compile Include="Error.xaml.cs">
       <DependentUpon>Error.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Home.cs" />
     <Compile Include="SqlRequete.cs" />
     <Page Include="Error.xaml">
       <SubType>Designer</SubType>
