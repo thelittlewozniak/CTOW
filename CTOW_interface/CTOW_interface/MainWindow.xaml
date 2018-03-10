@@ -47,7 +47,8 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="639" Margin="0,530,0,0" VerticalAlignment="Top" Width="1592">
             <ListBox HorizontalAlignment="Left" Height="100" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492"/>
-            <Button x:Name="BtnDetail" Content="Détail" HorizontalAlignment="Left" Margin="750,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible"/>
+            <Button x:Name="BtnDetail" Content="Détail" HorizontalAlignment="Left" Margin="429,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="AffichDetail"/>
+            <Button x:Name="BtnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="962,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="Quitter"/>
         </Grid>
     </Grid>
 </Window>

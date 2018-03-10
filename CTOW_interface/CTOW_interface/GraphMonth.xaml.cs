@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OxyPlot;
 
 namespace CTOW_interface
 {
@@ -20,8 +21,9 @@ namespace CTOW_interface
     public partial class GraphMonth : Window
     {
         public GraphMonth()
-        {
+        {   
             InitializeComponent();
+            TabPollution.InvalidatePlot(true);
         }
     }
 }

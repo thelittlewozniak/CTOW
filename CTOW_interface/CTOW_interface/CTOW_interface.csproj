@@ -82,6 +82,7 @@
     <Compile Include="GraphMonth.xaml.cs">
       <DependentUpon>GraphMonth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

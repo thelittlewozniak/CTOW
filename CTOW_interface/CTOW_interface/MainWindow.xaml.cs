@@ -24,5 +24,16 @@ namespace CTOW_interface
         {
             InitializeComponent();
         }
+
+        private void AffichDetail(object sender, RoutedEventArgs e)
+        {
+            GraphMonth graphique = new GraphMonth();
+            graphique.Show();
+        }
+
+        private void Quitter(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }
