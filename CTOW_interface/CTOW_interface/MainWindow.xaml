@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTOW_interface"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="DynamicTriangle" Height="1200" Width="1600">
     <Grid>
-        
+        <Polygon x:Name="Triangle100" Points="400,0 150,350, 650,350" Stroke="Black" />
+        <Polygon x:Name="Triangle75" Points="400,50 212.5,312.5 587.5,312.5" Stroke="Black" />
+        <Polygon x:Name="Triangle50" Points="400,100 275,275 525,275" Stroke="Black" />
+        <Polygon x:Name="Triangle25" Points="400,150 337.5,237.5 462.5,237.5" Stroke="Black" />
+        <Polygon x:Name="TriangleFill" Points="0,0 0,0 0,0" Stroke="Black" Fill="Blue"/>
     </Grid>
 </Window>
