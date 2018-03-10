@@ -116,5 +116,137 @@ namespace CTOW_code
                 return minPollution;
             }
         }
+        public double GetMaxSonor()
+        {
+            double maxSensor = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MaxSonor();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                maxSensor = Convert.ToDouble(dataReader["value_data"]);
+                return maxSensor;
+            }
+            else
+            {
+                return maxSensor;
+            }
+        }
+        public double GetMinSonor()
+        {
+            double minSensor = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MinSonor();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                minSensor = Convert.ToDouble(dataReader["value_data"]);
+                return minSensor;
+            }
+            else
+            {
+                return minSensor;
+            }
+        }
+        public double GetMaxInternet()
+        {
+            double maxInternet = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MaxInternet();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                maxInternet = Convert.ToDouble(dataReader["value_data"]);
+                return maxInternet;
+            }
+            else
+            {
+                return maxInternet;
+            }
+        }
+        public double GetMinInternet()
+        {
+            double minInternet = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MinInternet();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                minInternet = Convert.ToDouble(dataReader["value_data"]);
+                return minInternet;
+            }
+            else
+            {
+                return minInternet;
+            }
+        }
+        public List<Data> GetDataDevice(int guid)
+        {
+            List<Data> data = new List<Data>();
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.DataFromDevice(guid);
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                while (dataReader.Read())//while reading data => add on the list the data
+                {
+                    data.Add(new Data(Convert.ToDouble(dataReader["value_data"]), Convert.ToString(dataReader["type_data_description"]), Convert.ToDateTime(dataReader["data_time"]));
+                }
+                return data;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public double GetAvgDataDevice(int guid)
+        {
+            double dataAvg=0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.AvgDataFromDevice(guid);
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                dataAvg = Convert.ToDouble(dataReader["value_data"]);
+                return dataAvg;
+            }
+            else
+            {
+                return dataAvg;
+            }
+        }
+        public List<Device> GetDevicesFromAdress(Adress adress)
+        {
+            List<Device> listDevices=new List<Device>();
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.DeviceFromAdress(adress);
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                while (dataReader.Read())//while reading data => add on the list the data
+                {
+                    listDevices.Add(new Device(Convert.ToInt32(dataReader["iddevice"]),Convert.ToString(dataReader["device_description"])));
+                }
+                return listDevices;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
