@@ -37,5 +37,35 @@ namespace CTOW_interface
             this.Close();
             graph.Show();
         }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e) //1jour
+        {
+
+        }
+
+        private void ListBoxItem_Selected_1(object sender, RoutedEventArgs e) //1semaine
+        {
+
+        }
+
+        private void ListBoxItem_Selected_2(object sender, RoutedEventArgs e) //1mois
+        {
+
+        }
+
+        private void ListBoxItem_Selected_3(object sender, RoutedEventArgs e) //3mois
+        {
+
+        }
+
+        private void ListBoxItem_Selected_4(object sender, RoutedEventArgs e) //6mois
+        {
+
+        }
+
+        private void ListBoxItem_Selected_5(object sender, RoutedEventArgs e) //1ans
+        {
+
+        }
     }
 }

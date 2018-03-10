@@ -24,12 +24,12 @@
                     <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-            <ListBoxItem Height="54">1jour</ListBoxItem>
-            <ListBoxItem>1semaine</ListBoxItem>
-            <ListBoxItem>1mois</ListBoxItem>
-            <ListBoxItem>3mois</ListBoxItem>
-            <ListBoxItem>6mois</ListBoxItem>
-            <ListBoxItem>1ans</ListBoxItem>
+            <ListBoxItem Height="54" Selected="ListBoxItem_Selected">1jour</ListBoxItem>
+            <ListBoxItem Selected="ListBoxItem_Selected_1">1semaine</ListBoxItem>
+            <ListBoxItem Selected="ListBoxItem_Selected_2">1mois</ListBoxItem>
+            <ListBoxItem Selected="ListBoxItem_Selected_3">3mois</ListBoxItem>
+            <ListBoxItem Selected="ListBoxItem_Selected_4">6mois</ListBoxItem>
+            <ListBoxItem Selected="ListBoxItem_Selected_5">1ans</ListBoxItem>
         </ListBox>
     </Grid>
 </Window>

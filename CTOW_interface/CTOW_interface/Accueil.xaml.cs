@@ -23,14 +23,13 @@ namespace CTOW_interface
         {
             InitializeComponent();
         }
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e) //Item Audite séléctionner
         {
             Audite a = new Audite();
             this.Close();
             a.Show();
         }
-
-        private void ListBoxItem_Selected_1(object sender, RoutedEventArgs e)
+        private void ListBoxItem_Selected_1(object sender, RoutedEventArgs e) //Item Service Public sélectionner
         {
             MainWindow service = new MainWindow();
             this.Close();
