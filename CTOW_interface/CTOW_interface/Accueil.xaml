@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTOW_interface"
         mc:Ignorable="d"
-        Title="Accueil" Height="194.817" Width="220.427">
+        Title="Accueil" Height="194.817" Width="220.427" Background="#FF7A7070">
     <Grid Margin="0,0,2,0">
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="0,60,0,0" VerticalAlignment="Top" Width="208" FontSize="30">
-            <ListBoxItem x:Name="Audit" Selected="ListBoxItem_Selected">Audit</ListBoxItem>
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="0,60,0,0" VerticalAlignment="Top" Width="208" FontSize="30" Background="#FF7A7070">
+            <ListBoxItem x:Name="Audit" Selected="ListBoxItem_Selected" Background="#FF7A7070">Audit</ListBoxItem>
             <ListBoxItem Selected="ListBoxItem_Selected_1">Service Public</ListBoxItem>
         </ListBox>
         <Label Content="Datommi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="208" FontSize="40" HorizontalContentAlignment="Center"/>

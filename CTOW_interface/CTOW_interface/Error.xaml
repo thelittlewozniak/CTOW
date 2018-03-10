@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CTOW_interface"
         mc:Ignorable="d"
         Title="ErrorWindow" Height="400" Width="800">
-    <Grid>
+    <Grid Background="#FF7A7070">
         <Label x:Name="LabelErrorContent" Content="Error" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="30"/>
     </Grid>
 </Window>

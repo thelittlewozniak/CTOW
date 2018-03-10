@@ -10,23 +10,23 @@
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
-    <Grid>
+    <Grid Background="#FF7A7070">
         <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="84,0,0,0">
-            <oxy:Plot x:Name="TabPollution" Title="{Binding Pol}" Margin="10,0,77,50">
+            <oxy:Plot x:Name="TabPollution" Title="{Binding Pol}" Margin="10,0,77,50" Background="#FF7A7070">
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding PtPol}"/>
                 </oxy:Plot.Series>
             </oxy:Plot>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="834,0,0,0">
-            <oxy:Plot x:Name="TabBruit" Title="{Binding Bruit}" Margin="0,0,42,0" Height="452" VerticalAlignment="Top">
+            <oxy:Plot x:Name="TabBruit" Title="{Binding Bruit}" Margin="0,0,42,0" Height="452" VerticalAlignment="Top" Background="#FF7A7070">
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding PtBruit}"/>
                 </oxy:Plot.Series>
             </oxy:Plot>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="421,453,0,0">
-            <oxy:Plot x:Name="TabDebit" Title="{Binding Debit}" Margin="40,19,30,71">
+            <oxy:Plot x:Name="TabDebit" Title="{Binding Debit}" Margin="40,19,30,71" Background="#FF7A7070">
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding PtDebit}"/>
                 </oxy:Plot.Series>

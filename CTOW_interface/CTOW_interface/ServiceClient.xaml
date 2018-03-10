@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CTOW_interface"
         mc:Ignorable="d"
         Title="DynamicTriangle" Height="1200" Width="1600">
-    <Grid>
+    <Grid Background="#FF7A7070">
         <Grid HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="900">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="21*"/>
@@ -45,7 +45,7 @@
             <Label x:Name="LabelGraphDebit" Content="Débit" HorizontalAlignment="Left" Margin="593,394,0,0" VerticalAlignment="Top" Height="30" Width="72" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="639" Margin="0,530,0,0" VerticalAlignment="Top" Width="1592">
-            <ListBox HorizontalAlignment="Left" Height="322" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492"/>
+            <ListBox HorizontalAlignment="Left" Height="322" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492" Background="#FF7A7070"/>
             <Button x:Name="BtnDetail" Content="Détails" HorizontalAlignment="Left" Margin="429,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="AffichDetail"/>
             <Button x:Name="BtnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="962,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="Quitter"/>
         </Grid>
