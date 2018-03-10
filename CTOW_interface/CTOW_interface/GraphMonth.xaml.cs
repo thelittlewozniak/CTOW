@@ -25,5 +25,31 @@ namespace CTOW_interface
             InitializeComponent();
             TabPollution.InvalidatePlot(true);
         }
+
+        private void Quitter(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void DetailsPollution(object sender, RoutedEventArgs e)
+        {
+            Pollution pol = new Pollution();
+            this.Close();
+            pol.Show();
+        }
+
+        private void DetailsBruit(object sender, RoutedEventArgs e)
+        {
+            Bruit bruit = new Bruit();
+            this.Close();
+            bruit.Show();
+        }
+
+        private void DetailsDebit(object sender, RoutedEventArgs e)
+        {
+            Debit deb = new Debit();
+            this.Close();
+            deb.Show();
+        }
     }
 }

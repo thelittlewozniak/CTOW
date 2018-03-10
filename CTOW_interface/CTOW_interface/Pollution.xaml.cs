@@ -10,31 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CTOW_interface
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Pollution.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Pollution : Window
     {
-        public MainWindow()
+        public Pollution()
         {
             InitializeComponent();
-        }
-
-        private void AffichDetail(object sender, RoutedEventArgs e)
-        {
-            GraphMonth graphique = new GraphMonth();
-            this.Close();
-            graphique.Show();
         }
 
         private void Quitter(object sender, RoutedEventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void Previous(object sender, RoutedEventArgs e)
+        {
+            GraphMonth graphique = new GraphMonth();
+            this.Close();
+            graphique.Show();
         }
     }
 }

@@ -11,26 +11,30 @@
         <local:MainViewModel/>
     </Window.DataContext>
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="800">
+        <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="84,0,0,0">
             <oxy:Plot x:Name="TabPollution" Title="{Binding Pol}" Margin="10,0,77,50">
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding PtPol}"/>
                 </oxy:Plot.Series>
             </oxy:Plot>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="800" Margin="800,0,0,0">
+        <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="834,0,0,0">
             <oxy:Plot x:Name="TabBruit" Title="{Binding Bruit}" Margin="0,0,42,0" Height="452" VerticalAlignment="Top">
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding PtBruit}"/>
                 </oxy:Plot.Series>
             </oxy:Plot>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="800" Margin="369,477,0,0">
+        <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="421,453,0,0">
             <oxy:Plot x:Name="TabDebit" Title="{Binding Debit}" Margin="40,19,30,71">
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding PtDebit}"/>
                 </oxy:Plot.Series>
             </oxy:Plot>
         </Grid>
+        <Button Content="Quitter" HorizontalAlignment="Left" Margin="1409,888,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="Quitter"/>
+        <Button x:Name="BtDebit" Content="Details" HorizontalAlignment="Left" Margin="728,888,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="DetailsDebit"/>
+        <Button x:Name="BtPollution" Content="Details" HorizontalAlignment="Left" Margin="350,453,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="DetailsPollution"/>
+        <Button x:Name="BtBruit" Content="Details" HorizontalAlignment="Left" Margin="1121,453,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="DetailsBruit"/>
     </Grid>
 </Window>
