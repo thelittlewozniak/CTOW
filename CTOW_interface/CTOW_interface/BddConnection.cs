@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-namespace CTOW_code
+namespace CTOW_interface
 {
     class BddConnection
     {
@@ -53,11 +53,11 @@ namespace CTOW_code
         }
         public double GetMaxPollution()
         {
-            double maxPollution=0;
+            double maxPollution = 0;
             OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MaxPollution();
-            if(OpenConnection()==true)//try to connect on the database
+            if (OpenConnection() == true)//try to connect on the database
             {
                 SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
                 SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
@@ -182,7 +182,7 @@ namespace CTOW_code
         }
         public double GetAvgDataDevice(int guid)
         {
-            double dataAvg=0;
+            double dataAvg = 0;
             OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.AvgDataFromDevice(guid);
@@ -200,7 +200,7 @@ namespace CTOW_code
         }
         public List<Device> GetDevicesFromAdress(Adress adress)
         {
-            List<Device> listDevices=new List<Device>();
+            List<Device> listDevices = new List<Device>();
             OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.DeviceFromAdress(adress);
@@ -210,7 +210,7 @@ namespace CTOW_code
                 SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 while (dataReader.Read())//while reading data => add on the list the data
                 {
-                    listDevices.Add(new Device(Convert.ToInt32(dataReader["iddevice"]),Convert.ToString(dataReader["device_description"])));
+                    listDevices.Add(new Device(Convert.ToInt32(dataReader["iddevice"]), Convert.ToString(dataReader["device_description"])));
                 }
                 return listDevices;
             }
@@ -219,7 +219,7 @@ namespace CTOW_code
                 return null;
             }
         }
-        public List<Home> GetHome(double pollutionInt,double bruitIntensité,double vitesseInterent)
+        public List<Home> GetHome(double pollutionInt, double bruitIntensité, double vitesseInterent)
         {
             List<Home> listHome = new List<Home>();
             OpenConnection(); //Open the connection with the database
@@ -236,30 +236,30 @@ namespace CTOW_code
                 {
                     listAdress.Add(new Adress(Convert.ToString(dataReader["adress_number"]), Convert.ToString(dataReader["adress_street"]), Convert.ToInt32(dataReader["adress_cp"]), Convert.ToString(dataReader["adress_city"]), Convert.ToString(dataReader["adress_country"])));
                 }
-                foreach(Adress adress in listAdress)
+                foreach (Adress adress in listAdress)
                 {
                     List<Device> deviceList = GetDevicesFromAdress(adress);
-                    foreach(Device device in deviceList)
+                    foreach (Device device in deviceList)
                     {
-                        switch(device.DescriptionGet)
+                        switch (device.DescriptionGet)
                         {
                             case "bruit":
-                                data=GetAvgDataDevice(device.GuidGet);
-                                if(data>bruitIntensité)
+                                data = GetAvgDataDevice(device.GuidGet);
+                                if (data > bruitIntensité)
                                 {
                                     check = false;
                                 }
                                 break;
                             case "pollution":
                                 data = GetAvgDataDevice(device.GuidGet);
-                                if (data>pollutionInt)
+                                if (data > pollutionInt)
                                 {
                                     check = false;
                                 }
                                 break;
                             case "internet":
                                 data = GetAvgDataDevice(device.GuidGet);
-                                if(data<vitesseInterent)
+                                if (data < vitesseInterent)
                                 {
                                     check = false;
                                 }
