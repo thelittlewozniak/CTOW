@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="Audite" Height="450" Width="800">
     <Grid>
-        
+        <ListBox HorizontalAlignment="Left" Height="255" Margin="48,120,0,0" VerticalAlignment="Top" Width="192"/>
+        <Label Content="Biens à louer:" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Height="91" Width="190" FontSize="30"/>
+        <ListBox HorizontalAlignment="Left" Height="255" Margin="352,120,0,0" VerticalAlignment="Top" Width="171"/>
+        <Label Content="Durée:" HorizontalAlignment="Left" Margin="352,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.043,0.052" Height="91" Width="171" FontSize="30" HorizontalContentAlignment="Center"/>
+        <Label Content="Prix à payer:" HorizontalAlignment="Left" Margin="599,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.031,0.153" Height="74" Width="183" FontSize="30" HorizontalContentAlignment="Center"/>
+        <Label x:Name="TxtBoxPrix" Content="Vider + afficher prix" HorizontalAlignment="Left" Margin="618,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,-2.174" Height="66" Width="164" FontSize="30"/>
+        <Button Content="Quitter" HorizontalAlignment="Left" Margin="670,331,0,0" VerticalAlignment="Top" Width="112" Height="44" FontSize="30" Click="Quitter"/>
     </Grid>
 </Window>

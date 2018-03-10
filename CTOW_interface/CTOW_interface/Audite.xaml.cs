@@ -23,5 +23,10 @@ namespace CTOW_interface
         {
             InitializeComponent();
         }
+
+        private void Quitter(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }
