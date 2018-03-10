@@ -18,7 +18,7 @@
             <Label x:Name="LabelPollution" Content="Pollution" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
             <Label x:Name="LabelBruit" Content="Bruit" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
             <Label x:Name="LabelDebit" Content="Débit Internet" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-            <Label x:Name="LabelTitle" Content="Il était un fois une souris verte" HorizontalAlignment="Left" Margin="54,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.105,-0.692" Height="88" Width="676" FontSize="50"/>
+            <Label x:Name="LabelTitle" Content="DATOMMI" HorizontalAlignment="Left" Margin="54,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.105,-0.692" Height="88" Width="676" FontSize="50"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="450" Margin="900,0,0,0" VerticalAlignment="Top" Width="690">
             <Polygon x:Name="Triangle100" Points="345,40 95,390 595,390" Stroke="Black" />
@@ -47,7 +47,7 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="639" Margin="0,530,0,0" VerticalAlignment="Top" Width="1592">
             <ListBox HorizontalAlignment="Left" Height="100" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492"/>
-            <Button x:Name="BtnDetail" Content="Détail" HorizontalAlignment="Left" Margin="429,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="AffichDetail"/>
+            <Button x:Name="BtnDetail" Content="Détails" HorizontalAlignment="Left" Margin="429,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="AffichDetail"/>
             <Button x:Name="BtnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="962,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="Quitter"/>
         </Grid>
     </Grid>

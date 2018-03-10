@@ -24,6 +24,8 @@ namespace CTOW_interface
         {   
             InitializeComponent();
             TabPollution.InvalidatePlot(true);
+            TabDebit.InvalidatePlot(true);
+            TabBruit.InvalidatePlot(true);
         }
 
         private void Quitter(object sender, RoutedEventArgs e)
@@ -33,23 +35,23 @@ namespace CTOW_interface
 
         private void DetailsPollution(object sender, RoutedEventArgs e)
         {
-            Pollution pol = new Pollution();
+            Detail det = new Detail();
             this.Close();
-            pol.Show();
+            det.Show();
         }
 
         private void DetailsBruit(object sender, RoutedEventArgs e)
         {
-            Bruit bruit = new Bruit();
+            Detail det = new Detail();
             this.Close();
-            bruit.Show();
+            det.Show();
         }
 
         private void DetailsDebit(object sender, RoutedEventArgs e)
         {
-            Debit deb = new Debit();
+            Detail det = new Detail();
             this.Close();
-            deb.Show();
+            det.Show();
         }
     }
 }
