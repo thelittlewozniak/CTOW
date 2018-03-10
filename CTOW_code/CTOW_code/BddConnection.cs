@@ -3,36 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-
+using System.Data.SqlClient;
 namespace CTOW_code
 {
     class BddConnection
     {
-        private MySqlConnection connection;
+        private SqlConnection connection;
         private string server;
         private string database;
         private string uid;
         private string password;
-
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         //Constructor
         public BddConnection()
         {
-            Initialize(); //Call the inilialization of the connection
-        }
-
-        //Initialize values
-        private void Initialize()
-        {
-            server = "localhost"; //we are in local for the moment
-            database = "CTOW";
-            uid = "admin";
-            password = "azetty1234";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
-            connection = new MySqlConnection(connectionString);
+            builder.DataSource = "datommi-srv.database.windows.net";
+            builder.UserID = "datommi";
+            builder.Password = "CoW11235813";
+            builder.InitialCatalog = "datommi";
         }
 
         //open connection to database
@@ -43,7 +31,7 @@ namespace CTOW_code
                 connection.Open();
                 return true;
             }
-            catch (MySqlException ex)
+            catch (SqlException ex)
             {
                 //if errors, we detect wich error is and inform the users.
                 switch (ex.Number)
@@ -72,7 +60,7 @@ namespace CTOW_code
                 connection.Close();
                 return true;
             }
-            catch (MySqlException ex)
+            catch (SqlException ex)
             {
                 Error newError = new Error();
                 newError.LabelErrorContent.Content = ex.Message;
@@ -88,8 +76,8 @@ namespace CTOW_code
             newRequest.MaxPollution();
             if(OpenConnection()==true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 maxPollution = Convert.ToDouble(dataReader["value_data"]);
                 return maxPollution;
             }
@@ -106,8 +94,8 @@ namespace CTOW_code
             newRequest.MinPollution();
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 minPollution = Convert.ToDouble(dataReader["value_data"]);
                 return minPollution;
             }
@@ -124,8 +112,8 @@ namespace CTOW_code
             newRequest.MaxSonor();
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 maxSensor = Convert.ToDouble(dataReader["value_data"]);
                 return maxSensor;
             }
@@ -142,8 +130,8 @@ namespace CTOW_code
             newRequest.MinSonor();
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 minSensor = Convert.ToDouble(dataReader["value_data"]);
                 return minSensor;
             }
@@ -160,8 +148,8 @@ namespace CTOW_code
             newRequest.MaxInternet();
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 maxInternet = Convert.ToDouble(dataReader["value_data"]);
                 return maxInternet;
             }
@@ -178,8 +166,8 @@ namespace CTOW_code
             newRequest.MinInternet();
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 minInternet = Convert.ToDouble(dataReader["value_data"]);
                 return minInternet;
             }
@@ -196,11 +184,11 @@ namespace CTOW_code
             newRequest.DataFromDevice(guid);
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 while (dataReader.Read())//while reading data => add on the list the data
                 {
-                    data.Add(new Data(Convert.ToDouble(dataReader["value_data"]), Convert.ToString(dataReader["type_data_description"]), Convert.ToDateTime(dataReader["data_time"]));
+                    data.Add(new Data(Convert.ToDouble(dataReader["value_data"]), Convert.ToString(dataReader["type_data_description"]), Convert.ToDateTime(dataReader["data_time"])));
                 }
                 return data;
             }
@@ -217,8 +205,8 @@ namespace CTOW_code
             newRequest.AvgDataFromDevice(guid);
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 dataAvg = Convert.ToDouble(dataReader["value_data"]);
                 return dataAvg;
             }
@@ -235,8 +223,8 @@ namespace CTOW_code
             newRequest.DeviceFromAdress(adress);
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 while (dataReader.Read())//while reading data => add on the list the data
                 {
                     listDevices.Add(new Device(Convert.ToInt32(dataReader["iddevice"]),Convert.ToString(dataReader["device_description"])));
@@ -256,8 +244,8 @@ namespace CTOW_code
             newRequest.SelectAllHome();
             if (OpenConnection() == true)//try to connect on the database
             {
-                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
                 List<Adress> listAdress = new List<Adress>();
                 bool check = true;
                 double data = 0;
