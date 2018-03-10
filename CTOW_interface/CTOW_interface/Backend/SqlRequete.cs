@@ -9,7 +9,7 @@ namespace CTOW_interface.Backend
     class SqlRequete
     {
         private string request;
-        public string RequesteGet { get;}
+        public string RequesteGet { get; }
         public SqlRequete()
         {
 
@@ -53,7 +53,7 @@ namespace CTOW_interface.Backend
             int cp = adress.CpGet;
             string street = adress.StreetGet;
             string number = adress.NumberGet;
-            request = String.Concat("SELECT * FROM device INNER JOIN adress ON adress.idadresse=device.adress_idadresse where adress_street="+street+" and adress_number="+number+" and adress_cp="+cp+" and adress_city="+city+" and adress_country="+country);
+            request = String.Concat("SELECT * FROM device INNER JOIN adress ON adress.idadresse=device.adress_idadresse where adress_street=" + street + " and adress_number=" + number + " and adress_cp=" + cp + " and adress_city=" + city + " and adress_country=" + country);
         }
         public void SelectAllHome()
         {

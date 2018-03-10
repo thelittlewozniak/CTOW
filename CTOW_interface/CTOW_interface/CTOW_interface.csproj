@@ -83,6 +83,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Backend\Adress.cs" />
+    <Compile Include="Backend\BddConnection.cs" />
+    <Compile Include="Backend\Data.cs" />
+    <Compile Include="Backend\Device.cs" />
+    <Compile Include="Backend\Home.cs" />
+    <Compile Include="Backend\SqlRequete.cs" />
     <Compile Include="Detail.xaml.cs">
       <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
