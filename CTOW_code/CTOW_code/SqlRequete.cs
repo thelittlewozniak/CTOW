@@ -55,5 +55,9 @@ namespace CTOW_code
             string number = adress.NumberGet;
             request = String.Concat("SELECT * FROM device INNER JOIN adress ON adress.idadresse=device.adress_idadresse where adress_street="+street+" and adress_number="+number+" and adress_cp="+cp+" and adress_city="+city+" and adress_country="+country);
         }
+        public void SelectAllHome()
+        {
+            request = "SELECT * FROM adress";
+        }
     }
 }

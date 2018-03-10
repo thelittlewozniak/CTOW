@@ -248,5 +248,60 @@ namespace CTOW_code
                 return null;
             }
         }
+        public List<Home> GetHome(double pollutionInt,double bruitIntensité,double vitesseInterent)
+        {
+            List<Home> listHome = new List<Home>();
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.SelectAllHome();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                List<Adress> listAdress = new List<Adress>();
+                bool check = true;
+                double data = 0;
+                while (dataReader.Read())//while reading data => add on the list the data
+                {
+                    listAdress.Add(new Adress(Convert.ToString(dataReader["adress_number"]), Convert.ToString(dataReader["adress_street"]), Convert.ToInt32(dataReader["adress_cp"]), Convert.ToString(dataReader["adress_city"]), Convert.ToString(dataReader["adress_country"])));
+                }
+                foreach(Adress adress in listAdress)
+                {
+                    List<Device> deviceList = GetDevicesFromAdress(adress);
+                    foreach(Device device in deviceList)
+                    {
+                        switch(device.DescriptionGet)
+                        {
+                            case "bruit":
+                                data=GetAvgDataDevice(device.GuidGet);
+                                if(data>bruitIntensité)
+                                {
+                                    check = false;
+                                }
+                                break;
+                            case "pollution":
+                                data = GetAvgDataDevice(device.GuidGet);
+                                if (data>pollutionInt)
+                                {
+                                    check = false;
+                                }
+                                break;
+                            case "internet":
+                                data = GetAvgDataDevice(device.GuidGet);
+                                if(data<vitesseInterent)
+                                {
+                                    check = false;
+                                }
+                                break;
+                        }
+                    }
+                    if (check)
+                    {
+                        listHome.Add(new Home(adress, deviceList));
+                    }
+                }
+            }
+            return listHome;
+        }
     }
 }
