@@ -23,15 +23,14 @@ namespace CTOW_interface
         {
             InitializeComponent();
         }
-
-        private void Audite(object sender, RoutedEventArgs e)
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
         {
             Audite a = new Audite();
             this.Close();
-            a.Show();            
+            a.Show();
         }
 
-        private void Service(object sender, RoutedEventArgs e)
+        private void ListBoxItem_Selected_1(object sender, RoutedEventArgs e)
         {
             MainWindow service = new MainWindow();
             this.Close();

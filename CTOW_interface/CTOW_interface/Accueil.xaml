@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTOW_interface"
         mc:Ignorable="d"
-        Title="Accueil" Height="190.701" Width="223.933">
-    <Grid>
-        <ListBox HorizontalAlignment="Left" Height="96" Margin="0,64,0,0" VerticalAlignment="Top" Width="216" FontSize="30">
-            <ListBoxItem Selected="Audite">Audite</ListBoxItem>
-            <ListBoxItem Selected="Service">Service client</ListBoxItem>
+        Title="Accueil" Height="194.817" Width="220.427">
+    <Grid Margin="0,0,2,0">
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="0,60,0,0" VerticalAlignment="Top" Width="208" FontSize="30">
+            <ListBoxItem x:Name="Audit" Selected="ListBoxItem_Selected">Audit</ListBoxItem>
+            <ListBoxItem Selected="ListBoxItem_Selected_1">Service Public</ListBoxItem>
         </ListBox>
-        <Label Content="DATOMMI" HorizontalAlignment="Left" VerticalAlignment="Top" Height="65" Width="208" FontSize="44"/>
+        <Label Content="Datommi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="208" FontSize="40" HorizontalContentAlignment="Center"/>
+
     </Grid>
 </Window>
