@@ -116,5 +116,77 @@ namespace CTOW_code
                 return minPollution;
             }
         }
+        public double GetMaxSonor()
+        {
+            double maxSensor = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MaxSonor();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                maxSensor = Convert.ToDouble(dataReader["value_data"]);
+                return maxSensor;
+            }
+            else
+            {
+                return maxSensor;
+            }
+        }
+        public double GetMinSonor()
+        {
+            double minSensor = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MinSonor();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                minSensor = Convert.ToDouble(dataReader["value_data"]);
+                return minSensor;
+            }
+            else
+            {
+                return minSensor;
+            }
+        }
+        public double GetMaxInternet()
+        {
+            double maxInternet = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MaxInternet();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                maxInternet = Convert.ToDouble(dataReader["value_data"]);
+                return maxInternet;
+            }
+            else
+            {
+                return maxInternet;
+            }
+        }
+        public double GetMinInternet()
+        {
+            double minInternet = 0;
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            newRequest.MinInternet();
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                MySqlCommand cmd = new MySqlCommand(newRequest.RequesteGet, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                minInternet = Convert.ToDouble(dataReader["value_data"]);
+                return minInternet;
+            }
+            else
+            {
+                return minInternet;
+            }
+        }
     }
 }

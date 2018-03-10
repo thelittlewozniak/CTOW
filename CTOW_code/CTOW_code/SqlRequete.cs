@@ -22,5 +22,21 @@ namespace CTOW_code
         {
             request = "SELCT min(value_data) FROM data where type_idtype=AQ";
         }
+        public void MaxSonor()
+        {
+            request = "SELECT max(value_data) FROM data where type_idtype=SONOR";
+        }
+        public void MinSonor()
+        {
+            request = "SELECT min(value_data) FROM data where type_idtype=SONOR";
+        }
+        public void MaxInternet()
+        {
+            request = "SELECT max(value_data) FROM data where type_idtype=INT";
+        }
+        public void MinInternet()
+        {
+            request = "SELECT min(value_data) FROM data where type_idtype=INT";
+        }
     }
 }
