@@ -21,16 +21,16 @@ USE `mydb` ;
 -- -----------------------------------------------------
 -- Table `adress`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `adress` ;
+DROP TABLE IF EXISTS `address` ;
 
-CREATE TABLE IF NOT EXISTS `adress` (
-  `idadress` INT NOT NULL,
-  `adress_street` VARCHAR(45) NULL,
-  `adress_number` VARCHAR(45) NULL,
-  `adress_cp` VARCHAR(45) NULL,
-  `adress_city` VARCHAR(45) NULL,
-  `adress_country` VARCHAR(45) NULL,
-  PRIMARY KEY (`idadress`))
+CREATE TABLE IF NOT EXISTS `address` (
+  `idaddress` INT NOT NULL,
+  `address_street` VARCHAR(45) NULL,
+  `address_number` VARCHAR(45) NULL,
+  `address_cp` VARCHAR(45) NULL,
+  `address_city` VARCHAR(45) NULL,
+  `address_country` VARCHAR(45) NULL,
+  PRIMARY KEY (`idaddress`))
 ENGINE = InnoDB;
 
 
@@ -42,12 +42,12 @@ DROP TABLE IF EXISTS `device` ;
 CREATE TABLE IF NOT EXISTS `device` (
   `guid` INT NOT NULL,
   `device_description` VARCHAR(45) NULL,
-  `adress_idadress` INT NOT NULL,
+  `address_idadress` INT NOT NULL,
   PRIMARY KEY (`guid`),
-  INDEX `fk_device_adress_idx` (`adress_idadress` ASC),
-  CONSTRAINT `fk_device_adress`
-    FOREIGN KEY (`adress_idadress`)
-    REFERENCES `adress` (`idadress`)
+  INDEX `fk_device_address_idx` (`address_idadress` ASC),
+  CONSTRAINT `fk_device_address`
+    FOREIGN KEY (`adress_idaddress`)
+    REFERENCES `adress` (`idaddress`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
