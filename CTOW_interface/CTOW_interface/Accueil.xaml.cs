@@ -26,9 +26,9 @@ namespace CTOW_interface
 
         private void Audite(object sender, RoutedEventArgs e)
         {
-            Audite audite = new Audite();
+            Audite a = new Audite();
             this.Close();
-            audite.Show();            
+            a.Show();            
         }
 
         private void Service(object sender, RoutedEventArgs e)
