@@ -274,5 +274,37 @@ namespace CTOW_interface.Backend
             }
             return listHome;
         }
+        public List<Data> GetDataFromMonth(string type)
+        {
+            List<Data> listData = new List<Data>();
+            OpenConnection(); //Open the connection with the database
+            SqlRequete newRequest = new SqlRequete();
+            switch(type)
+            {
+                case "AQ":
+                    newRequest.SelectPollutionMonth();
+                    break;
+                case "INT":
+                    newRequest.SelectInternetMonth();
+                    break;
+                case "SONOR":
+                    newRequest.SelectSonorMonth();
+                    break;
+            }
+            if (OpenConnection() == true)//try to connect on the database
+            {
+                SqlCommand cmd = new SqlCommand(newRequest.RequesteGet, connection);
+                SqlDataReader dataReader = cmd.ExecuteReader(); //execute the request and take the max of the pollution
+                while (dataReader.Read())//while reading data => add on the list the data
+                {
+                    listData.Add(new Data(Convert.ToDouble(dataReader["value_data"]),Convert.ToString(dataReader["type_idtype"]),Convert.ToDateTime(dataReader["data_time"])));
+                }
+                return listData;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

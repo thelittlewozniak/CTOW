@@ -59,5 +59,17 @@ namespace CTOW_interface.Backend
         {
             request = "SELECT * FROM adress";
         }
+        public void SelectPollutionMonth()
+        {
+            request = "SELECT * FROM data INNER JOIN device ON data.device_iddevice=device.iddevice where type_idtype=AQ group by date order by date LIMIT 30";
+        }
+        public void SelectSonorMonth()
+        {
+            request = "SELECT * FROM data INNER JOIN device ON data.device_iddevice=device.iddevice where type_idtype=SONOR group by date order by date LIMIT 30";
+        }
+        public void SelectInternetMonth()
+        {
+            request = "SELECT avg(value_data) FROM data INNER JOIN device ON data.device_iddevice=device.iddevice where type_idtype=INT group by date order by date LIMIT 30";
+        }
     }
 }

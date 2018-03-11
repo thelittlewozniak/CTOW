@@ -10,7 +10,7 @@
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
-    <Grid Background="#FF7A7070">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
         <Grid HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="84,0,0,0">
             <oxy:Plot x:Name="TabPollution" Title="{Binding Pol}" Margin="10,0,77,50" Background="#FF7A7070">
                 <oxy:Plot.Series>

@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CTOW_interface"
         mc:Ignorable="d"
-        Title="DynamicTriangle" Height="1200" Width="1600">
-    <Grid Background="#FF7A7070">
-        <Grid HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="900">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="21*"/>
-                <ColumnDefinition Width="4*"/>
-            </Grid.ColumnDefinitions>
-            <Slider x:Name="SliderPollution" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top" Height="30" Width="402"/>
-            <Slider x:Name="SliderBruit" HorizontalAlignment="Left" Margin="250,350,0,0" VerticalAlignment="Top" Height="30" Width="402"/>
-            <Slider x:Name="SliderDebit" HorizontalAlignment="Left" Margin="250,450,0,0" VerticalAlignment="Top" Height="30" Width="402"/>
-            <Label x:Name="LabelPollution" Content="Pollution" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-            <Label x:Name="LabelBruit" Content="Bruit" HorizontalAlignment="Left" Margin="10,331,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
-            <Label x:Name="LabelDebit" Content="Débit Internet" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        Title="DynamicTriangle" Height="1200" Width="1600" Background="Black">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="900" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+            <Slider x:Name="SliderPollution" HorizontalAlignment="Left" Margin="310,80,0,0" VerticalAlignment="Top" Height="30" Width="402" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="White" Foreground="White" ValueChanged="SliderPollution_ValueChanged"/>
+            <Slider x:Name="SliderBruit" HorizontalAlignment="Left" Margin="310,180,0,0" VerticalAlignment="Top" Height="30" Width="402" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" ValueChanged="SliderBruit_ValueChanged"/>
+            <Slider x:Name="SliderDebit" HorizontalAlignment="Left" Margin="310,280,0,0" VerticalAlignment="Top" Height="30" Width="402" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" ValueChanged="SliderDebit_ValueChanged"/>
+            <Label x:Name="LabelPollution" Content="Pollution" HorizontalAlignment="Left" Margin="70,61,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label x:Name="LabelBruit" Content="Bruit" HorizontalAlignment="Left" Margin="70,161,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label x:Name="LabelDebit" Content="Débit Internet" HorizontalAlignment="Left" Margin="70,260,0,0" VerticalAlignment="Top" Width="202" Height="52" FontSize="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Button x:Name="ButtonCheck" Content="Check" HorizontalAlignment="Left" Height="104" Margin="668,395,0,0" VerticalAlignment="Top" Width="180" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" FontSize="36" Foreground="White" Click="ButtonCheck_Click"/>
+            <Label x:Name="LabelSliderPollution" HorizontalAlignment="Left" Height="33" Margin="717,80,0,0" VerticalAlignment="Top" Width="70"/>
+            <Label x:Name="LabelSliderBruit" HorizontalAlignment="Left" Height="33" Margin="717,177,0,0" VerticalAlignment="Top" Width="70"/>
+            <Label x:Name="LabelSliderInternet" HorizontalAlignment="Left" Height="33" Margin="717,277,0,0" VerticalAlignment="Top" Width="70"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="450" Margin="900,0,0,0" VerticalAlignment="Top" Width="690">
+        <Grid HorizontalAlignment="Left" Height="530" Margin="905,0,0,0" VerticalAlignment="Top" Width="685" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
             <Polygon x:Name="Triangle100" Points="345,40 95,390 595,390" Stroke="Black" />
             <Polygon x:Name="Triangle75" Points="345,90 157.5,352.5 532.5,352.5" Stroke="Black" />
             <Polygon x:Name="Triangle50" Points="345,140 220,315 470,315" Stroke="Black" />
@@ -44,8 +44,8 @@
             <Label x:Name="LabelGraphBruit" Content="Bruit" HorizontalAlignment="Left" Margin="308,0,0,0" VerticalAlignment="Top" Height="30" Width="72" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
             <Label x:Name="LabelGraphDebit" Content="Débit" HorizontalAlignment="Left" Margin="593,394,0,0" VerticalAlignment="Top" Height="30" Width="72" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="639" Margin="0,530,0,0" VerticalAlignment="Top" Width="1592">
-            <ListBox HorizontalAlignment="Left" Height="322" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492" Background="#FF7A7070"/>
+        <Grid HorizontalAlignment="Left" Height="634" Margin="0,535,0,0" VerticalAlignment="Top" Width="1592" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+            <ListBox x:Name="ListBoxHome" HorizontalAlignment="Left" Height="322" Margin="50,46,0,0" VerticalAlignment="Top" Width="1492" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" SelectionChanged="ListBoxHome_SelectionChanged"/>
             <Button x:Name="BtnDetail" Content="Détails" HorizontalAlignment="Left" Margin="429,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="AffichDetail"/>
             <Button x:Name="BtnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="962,412,0,0" VerticalAlignment="Top" Width="140" Height="46" FontSize="30" VerticalContentAlignment="Center" Visibility="Visible" Click="Quitter"/>
         </Grid>
