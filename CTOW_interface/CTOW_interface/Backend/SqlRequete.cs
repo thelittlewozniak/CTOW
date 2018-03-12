@@ -16,35 +16,35 @@ namespace CTOW_interface.Backend
         }
         public void MaxPollution() //requeste to have the max of the pollution saved
         {
-            request = "SELCT max(value_data) FROM data where type_idtype=AQ";
+            request = "SELCT max(value_data) FROM data where type_idtype_data='AQ'";
         }
         public void MinPollution() //requeste to have the max of the pollution saved
         {
-            request = "SELCT min(value_data) FROM data where type_idtype=AQ";
+            request = "SELCT min(value_data) FROM data where type_idtype_data='AQ'";
         }
         public void MaxSonor()
         {
-            request = "SELECT max(value_data) FROM data where type_idtype=SONOR";
+            request = "SELECT max(value_data) FROM data where type_idtype_data='SONOR'";
         }
         public void MinSonor()
         {
-            request = "SELECT min(value_data) FROM data where type_idtype=SONOR";
+            request = "SELECT min(value_data) FROM data where type_idtype_data='SONOR'";
         }
         public void MaxInternet()
         {
-            request = "SELECT max(value_data) FROM data where type_idtype=INT";
+            request = "SELECT max(value_data) FROM data where type_idtype_data='INT'";
         }
         public void MinInternet()
         {
-            request = "SELECT min(value_data) FROM data where type_idtype=INT";
+            request = "SELECT min(value_data) FROM data where type_idtype_data='INT'";
         }
         public void DataFromDevice(int guid)
         {
-            request = "SELECT value_data,data_time,type_data_description FROM data INNER JOIN type_data on data.type_idtype_data=type_data.idtype_data where device_iddevice=" + guid;
+            request = "SELECT value_data,date,time,type_data_description FROM data INNER JOIN type_data on data.type_idtype_data=type_data.idtype_data where device_iddevice=" + guid;
         }
         public void AvgDataFromDevice(int guid)
         {
-            request = "SELECT avg(value_data) FROM data group by device_iddevice where device_iddevice=" + guid;
+            request = "SELECT avg(value_data) FROM data where device_iddevice=" + guid+ "group by device_iddevice";
         }
         public void DeviceFromAdress(Adress adress)
         {
@@ -53,11 +53,11 @@ namespace CTOW_interface.Backend
             int cp = adress.CpGet;
             string street = adress.StreetGet;
             string number = adress.NumberGet;
-            request = String.Concat("SELECT * FROM device INNER JOIN adress ON adress.idadresse=device.adress_idadresse where adress_street=" + street + " and adress_number=" + number + " and adress_cp=" + cp + " and adress_city=" + city + " and adress_country=" + country);
+            request = String.Concat("SELECT * FROM device INNER JOIN address ON adress.idaddresse=device.address_idaddress where address_street=" + street + " and address_number=" + number + " and address_cp=" + cp + " and address_city=" + city + " and address_country=" + country);
         }
         public void SelectAllHome()
         {
-            request = "SELECT * FROM adress";
+            request = "SELECT * FROM address";
         }
         public void SelectPollutionMonth()
         {

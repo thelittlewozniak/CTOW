@@ -9,10 +9,6 @@ namespace CTOW_interface.Backend
     class BddConnection
     {
         private SqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         //Constructor
         public BddConnection()
@@ -20,7 +16,7 @@ namespace CTOW_interface.Backend
             builder.DataSource = "datommi-srv.database.windows.net";
             builder.UserID = "datommi";
             builder.Password = "CoW11235813";
-            builder.InitialCatalog = "datommi";
+            builder.InitialCatalog = "datommi-grp-resr";
             connection = new SqlConnection(builder.ConnectionString);
         }
 
@@ -54,7 +50,6 @@ namespace CTOW_interface.Backend
         public double GetMaxPollution()
         {
             double maxPollution = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MaxPollution();
             if (OpenConnection() == true)//try to connect on the database
@@ -72,7 +67,6 @@ namespace CTOW_interface.Backend
         public double GetMinPollution()
         {
             double minPollution = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MinPollution();
             if (OpenConnection() == true)//try to connect on the database
@@ -90,7 +84,6 @@ namespace CTOW_interface.Backend
         public double GetMaxSonor()
         {
             double maxSensor = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MaxSonor();
             if (OpenConnection() == true)//try to connect on the database
@@ -108,7 +101,6 @@ namespace CTOW_interface.Backend
         public double GetMinSonor()
         {
             double minSensor = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MinSonor();
             if (OpenConnection() == true)//try to connect on the database
@@ -126,7 +118,6 @@ namespace CTOW_interface.Backend
         public double GetMaxInternet()
         {
             double maxInternet = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MaxInternet();
             if (OpenConnection() == true)//try to connect on the database
@@ -144,7 +135,6 @@ namespace CTOW_interface.Backend
         public double GetMinInternet()
         {
             double minInternet = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.MinInternet();
             if (OpenConnection() == true)//try to connect on the database
@@ -162,7 +152,6 @@ namespace CTOW_interface.Backend
         public List<Data> GetDataDevice(int guid)
         {
             List<Data> data = new List<Data>();
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.DataFromDevice(guid);
             if (OpenConnection() == true)//try to connect on the database
@@ -183,7 +172,6 @@ namespace CTOW_interface.Backend
         public double GetAvgDataDevice(int guid)
         {
             double dataAvg = 0;
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.AvgDataFromDevice(guid);
             if (OpenConnection() == true)//try to connect on the database
@@ -201,7 +189,6 @@ namespace CTOW_interface.Backend
         public List<Device> GetDevicesFromAdress(Adress adress)
         {
             List<Device> listDevices = new List<Device>();
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.DeviceFromAdress(adress);
             if (OpenConnection() == true)//try to connect on the database
@@ -222,7 +209,6 @@ namespace CTOW_interface.Backend
         public List<Home> GetHome(double pollutionInt, double bruitIntensité, double vitesseInterent)
         {
             List<Home> listHome = new List<Home>();
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             newRequest.SelectAllHome();
             if (OpenConnection() == true)//try to connect on the database
@@ -277,7 +263,6 @@ namespace CTOW_interface.Backend
         public List<Data> GetDataFromMonth(string type)
         {
             List<Data> listData = new List<Data>();
-            OpenConnection(); //Open the connection with the database
             SqlRequete newRequest = new SqlRequete();
             switch(type)
             {

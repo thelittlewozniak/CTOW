@@ -23,11 +23,13 @@ namespace CTOW_interface
     {
         BddConnection bddConnection;
         List<Home> listHome;
+        double maxpoll;
         public MainWindow()
         {
             InitializeComponent();
             bddConnection = new BddConnection();
             listHome = new List<Home>();
+            maxpoll = bddConnection.GetMaxPollution();
         }
 
         private void AffichDetail(object sender, RoutedEventArgs e)
@@ -44,7 +46,7 @@ namespace CTOW_interface
 
         private void SliderPollution_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            LabelSliderPollution.Content = (bddConnection.GetMaxPollution()/10)*SliderPollution.Value;
+            LabelSliderPollution.Content = (maxpoll/10)*SliderPollution.Value;
         }
 
         private void SliderBruit_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -84,7 +86,7 @@ namespace CTOW_interface
                         break;
                 }
             }
-            bddConnection.ge
+            //bddConnection.ge
         }
     }
 }

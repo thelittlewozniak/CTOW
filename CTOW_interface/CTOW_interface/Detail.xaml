@@ -10,15 +10,15 @@
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
-    <Grid Background="#FF7A7070">
-        <oxy:Plot x:Name="tabDetail" Title="{Binding Detail}" Margin="42,19,58,191" Background="#FF7A7070">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+        <oxy:Plot x:Name="tabDetail" Title="{Binding Detail}" Margin="42,19,58,191" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
             <oxy:Plot.Series>
                 <oxy:LineSeries ItemsSource="{Binding PtDetail}"/>
             </oxy:Plot.Series>
         </oxy:Plot>
-        <Button Content="Quitter" HorizontalAlignment="Left" Margin="1409,888,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="Quitter" Background="#FF686161"/>
-        <Button Content="Precedent" HorizontalAlignment="Left" Margin="1261,888,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="Previous" Background="#FF615D5D"/>
-        <ListBox Height="58" Margin="347,883,678,0" VerticalAlignment="Top" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF7A7070">
+        <Button Content="Quitter" HorizontalAlignment="Left" Margin="1409,888,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="Quitter" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        <Button Content="Precedent" HorizontalAlignment="Left" Margin="1261,888,0,0" VerticalAlignment="Top" Width="125" Height="38" FontSize="25" Click="Previous" Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Foreground="White"/>
+        <ListBox Height="58" Margin="347,883,678,0" VerticalAlignment="Top" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>

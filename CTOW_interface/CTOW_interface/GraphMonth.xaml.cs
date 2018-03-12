@@ -32,7 +32,6 @@ namespace CTOW_interface
         {
             Environment.Exit(1);
         }
-
         private void DetailsPollution(object sender, RoutedEventArgs e)
         {
             Detail det = new Detail();
