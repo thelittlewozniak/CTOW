@@ -28,7 +28,7 @@ CREATE TABLE  device (
 -- Table type_data
 -- -----------------------------------------------------
 CREATE TABLE  type_data (
-  idtype_data INT NOT NULL,
+  idtype_data VARCHAR(45) NOT NULL,
   type_data_description VARCHAR(45) NULL,
   PRIMARY KEY (idtype_data))
 -- -----------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE  type_data (
 CREATE TABLE  data (
   iddata INT IDENTITY(1,1) NOT NULL,
   value_data VARCHAR(45) NULL,
-  type_idtype INT NOT NULL,
+  type_idtype_data VARCHAR(45) NOT NULL,
   device_iddevice INT NOT NULL,
   date_time DATETIME NULL,
   PRIMARY KEY (iddata),
